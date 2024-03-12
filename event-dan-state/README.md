@@ -190,3 +190,17 @@ Dua hal tersebut bisa dicapai dengan Hook `useState`:
 ![GIF P5](assets-report/praktikum5langkah2.gif)
 
 - Ketika saya mengubah nilai pada input `firstName` atau `lastName`, nilai `fullName akan diupdate secara otomatis` karena menggunakan state dari `useState`. Hal ini memastikan bahwa nama lengkap yang ditampilkan selalu sinkron dengan nilai dari input nama depan dan nama belakang.
+
+## Soal 1
+#### Apa perbedaan dari fungsi Form_2 yang pertama dengan yang kedua?
+
+- Perbedaan dari fungsi `Form_2` yang pertama dengan yang kedua adalah pada fungsi `Form_2 yang pertama`, kita menggunakan `useState` untuk mengatur state dari `firstName`, `lastName`, dan `fullName`, lalu pada `Form_2 yang kedua` kita menghapus `useState` pada `fullName` karena menyebabkan state redundan dan bisa membuat kesalahan/bug pada aplikasi react/nextjs yang kita buat.
+
+## Soal 2
+#### Kenapa perlu menghapus state fullName? Apa keuntungannya?
+
+- Karena `fullName` adalah `derived state` dari `firstName` dan `lastName`, maka kita tidak perlu menyimpannya dalam state. Kita bisa secara langsung dari `firstName` dan `lastName` ketika kita membutuhkannya.
+
+- Keuntungannya adalah mengurangi redundansi data dan memastikan bahwa `fullName` selalu sinkron dengan `firstName` dan `lastName`.
+
+---
