@@ -96,3 +96,35 @@ Parameter `isiPesan` dan `namaTombol` bisa diisi oleh layout yang ada di `page.t
 ![GIF P3](assets-report/praktikum3langkah2.gif)
 
 ---
+
+# Praktikum 4:
+
+## Langkah 1 - Membuat File Data Dummy
+#### Sekarang coba di browser dan klik tombol "Artikel Selanjutnya" dan perhatikan apa yang terjadi?
+
+![Screenshot P4](assets-report/praktikum4langkah1.jpg)
+
+- Ya, tidak terjadi apa-apa 😀. Karena kita belum membuat event handler untuk tombol tersebut.
+
+Event handler `handleClick` memperbarui nilai variabel `index`. Namun dua hal mencegah pembaruan tersebut ditampilkan ke pengguna:
+
+- Variabel lokal tidak dipertahankan antar-render. Saat React me-render komponen ini untuk kedua kalinya, react membuat ulang dari awal, sehingga `index` tetap bernilai 0 dan react tidak memperhatikan adanya perubahan ke variabel `index` tersebut.
+- `Perubahan terhadap variabel lokal tidak memicu render`. React tidak menyadari kalau dia perlu melakukan render ulang dengan data yang baru.
+
+Untuk memperbarui komponen dengan data baru, dua hal perlu terjadi:
+
+- `Mempertahankan` data antar-render.
+- `Memicu` React untuk merender ulang komponennya dengan data baru.
+
+Dua hal tersebut bisa dicapai dengan Hook `useState`:
+
+- Sebuah `variabel state` untuk mempertahankan data antar-render.
+- Sebuah `fungsi state setter` untuk memperbarui variabel dan memicu React untuk merender ulang komponen.
+
+## Langkah 2 - Membuat Variabel State
+#### Jalankan pada browser dan amati apa yang terjadi?
+
+![GIF P4](assets-report/praktikum4langkah2.gif)
+
+- ketika `komponen` tersebut dijalankan di browser, ketika tombol yang sesuai diklik, `variabel state index` akan bertambah satu setiap kali handleClick dipanggil. Ini akan menyebabkan perubahan pada tampilan atau perilaku `komponen Gallery`, tergantung pada bagaimana variabel state tersebut digunakan dalam komponen tersebut.
+

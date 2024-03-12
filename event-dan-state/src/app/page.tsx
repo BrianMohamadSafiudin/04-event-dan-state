@@ -1,5 +1,7 @@
 "use client";
+import React from "react";
 import Tombol_1, { Tombol_2, Tombol_3 } from "./component/button";
+import Gallery from "./component/gallery";
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
         <Tombol_3 isiPesan="Child Element : Tombol_1" namaTombol="Tombol-1"/>
         <Tombol_3 isiPesan="Child Element : Tombol_2" namaTombol="Tombol-2"/>
       </div>
+      <br></br>
+      <Gallery/>
     </>
   );
 }
