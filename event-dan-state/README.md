@@ -40,7 +40,7 @@ Method `event handle` HARUS dioper (ditulis nama fungsinya, tanpa tanda kurung `
                 }
             }
         >
-            Ini tombool Brian
+            Ini tombol Brian
         </button>
     )
 ```
@@ -49,3 +49,16 @@ Method `event handle` HARUS dioper (ditulis nama fungsinya, tanpa tanda kurung `
 
 ---
 
+# Praktikum 2:
+
+Pada `component`, hanya ada 1 fungsi yang memiliki `default` !
+
+Parameter `isiPesan` dan `namaTombol` bisa diisi oleh layout yang ada di `page.tsx` nanti, sehingga komponen `Tombol_2` bernilai dinamis.
+
+![Screenshot P2](assets-report/praktikum2.jpg)
+
+#### Jelaskan mengapa bisa seperti itu?
+
+- Karena pada parameter `isiPesan` dan `namaTombol` bisa diisi oleh tata letak (layout) yang ada di file `page.tsx`. Ini berarti bahwa nilai untuk kedua parameter tersebut akan ditentukan `dinamis` oleh komponen yang menggunakan tombol tersebut di dalam `page.tsx`.
+
+---
