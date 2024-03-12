@@ -204,3 +204,36 @@ Dua hal tersebut bisa dicapai dengan Hook `useState`:
 - Keuntungannya adalah mengurangi redundansi data dan memastikan bahwa `fullName` selalu sinkron dengan `firstName` dan `lastName`.
 
 ---
+
+# Praktikum 6:
+
+## Langkah 1 - Membuat Accordion
+#### Amati dan laporkan apa yang terjadi?
+
+![GIF P6](assets-report/praktikum6langkah1.gif)
+
+- Pada komponen `Accordion`, terdapat state `activeIndex` yang menentukan panel mana yang sedang aktif (diperluas). Ketika `activeIndex` sama dengan indeks panel (0 untuk panel pertama, 1 untuk panel kedua), maka panel tersebut dianggap aktif.
+
+- Di dalam komponen `Accordion`, kita memiliki dua instansi dari komponen `Panel`. Setiap panel menerima properti `title` (judul panel), `isActive` (menunjukkan apakah panel sedang aktif), dan `onShow` (fungsi yang akan dipanggil saat panel diklik).
+
+- Ketika panel diklik, fungsi `onShow` dipanggil, yang mengatur state `activeIndex` sesuai dengan indeks panel yang diklik.
+
+- Di dalam komponen `Panel`, terdapat pengecekan apakah panel sedang aktif (isActive === true). Jika ya, maka konten panel ditampilkan.
+
+- Dengan demikian, ketika menjalankan kode tersebut, kita akan melihat dua panel dengan judul `"About"` dan `"Etymology"`. Saat salah satu panel diklik, panel tersebut akan diperluas dan menampilkan kontennya. Panel lainnya akan tetap tertutup.
+
+## Langkah 2 - Mempertahankan dan Mengatur Ulang State
+
+Perubahan yang dilakukan dengan menambahkan properti key pada komponen `<Chat>` akan mempengaruhi proses reconcilation yang dilakukan oleh React saat merender daftar komponen.
+
+Ketika kita menambahkan properti `key` pada sebuah komponen dalam daftar, React akan menggunakan nilai dari properti `key` tersebut untuk mengidentifikasi komponen secara unik di antara saudara-saudaranya. Ini memungkinkan React untuk melakukan updating yang lebih efisien saat daftar komponen berubah, karena React dapat mengidentifikasi komponen yang telah dihapus, ditambahkan, atau diubah urutannya berdasarkan nilai kunci yang berubah.
+
+#### Coba jalankan kembali pada browser, amati dan laporkan perbedaannya.
+
+![GIF P6](assets-report/praktikum6langkah2.gif)
+
+- Dalam kasus ini, `<Chat key={to.email} contact={to} />`, kita menggunakan nilai `to.email` sebagai kunci. Jika `to.email` unik untuk setiap kontak, ini memastikan bahwa setiap komponen `<Chat>` yang mewakili kontak akan dianggap unik oleh React.
+
+- Perbedaannya sebelum perubahan, komponen `<Chat>` dirender tanpa properti `key`. Setelah perubahan, komponen `<Chat>` dirender dengan `properti key={to.email}`.
+
+- Dengan adanya properti `key`, React akan lebih efisien dalam menangani perubahan yang terjadi pada daftar komponen. Ini dapat meningkatkan kinerja aplikasi, terutama ketika kita memiliki daftar komponen yang dinamis dan sering berubah.
