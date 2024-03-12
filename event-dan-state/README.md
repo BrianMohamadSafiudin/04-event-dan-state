@@ -128,3 +128,41 @@ Dua hal tersebut bisa dicapai dengan Hook `useState`:
 
 - ketika `komponen` tersebut dijalankan di browser, ketika tombol yang sesuai diklik, `variabel state index` akan bertambah satu setiap kali handleClick dipanggil. Ini akan menyebabkan perubahan pada tampilan atau perilaku `komponen Gallery`, tergantung pada bagaimana variabel state tersebut digunakan dalam komponen tersebut.
 
+## Soal 1
+#### Jika kita menekan tombol "Artikel Selanjutnya" sebanyak 5x (atau melebihi halaman total artikel), apa yang akan terjadi?
+
+![Screenshot P4](assets-report/praktikum4soal1.jpg)
+
+- Terjadi error, tidak dapat membaca properti yang tidak terdefinisi (membaca 'nama').
+
+## Soal 2
+#### Modifikasilah gallery.tsx agar bisa meng-handle permasalahan tersebut.
+
+```tsx
+    function handleClick() {
+        if (index < sculptureList.length - 1) {
+            setIndex(index + 1);
+        } else {
+            setIndex(0);
+        }
+    };
+```
+
+![GIF P4](assets-report/praktikum4soal2.gif)
+
+## Soal 3
+#### Tambahkan tombol "Artikel Sebelumnya", untuk menampilkan artikel secara mundur.
+
+```tsx
+    function handleClickMundur() {
+        if (index > 0) {
+            setIndex(index - 1);
+        } else {
+            setIndex(sculptureList.length - 1);
+        }
+    };
+```
+
+![GIF P4](assets-report/praktikum4soal3.gif)
+
+---
