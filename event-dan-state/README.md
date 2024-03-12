@@ -166,3 +166,27 @@ Dua hal tersebut bisa dicapai dengan Hook `useState`:
 ![GIF P4](assets-report/praktikum4soal3.gif)
 
 ---
+
+# Praktikum 5:
+
+## Langkah 1 - Membuat Form
+#### Jalankan pada browser, amati dan laporkan apa yang terjadi?
+
+![GIF P5](assets-report/praktikum5langkah1.gif)
+
+- Ketika saya menjalankan kode tersebut, tampilan awalnya adalah `form` yang meminta pengguna untuk memasukkan jawaban.
+
+- Jika saya memasukkan jawaban yang benar, yaitu `"joshi"`, maka setelah `0,5 detik`, pesan `"Anjay... Jawaban Brian Benar!"` akan muncul, menandakan bahwa status telah diubah menjadi 'success' dan pesan berhasil ditampilkan dengan benar.
+
+- Namun, jika saya memasukkan jawaban yang salah, seperti `"momo"`, maka setelah `0,5 detik`, pesan error `"Jawaban salah! bukan kucing Brian. Silahkan coba lagi!"` akan muncul, menandakan bahwa pesan error ditampilkan dengan benar karena jawaban yang dimasukkan tidak sesuai.
+
+## Langkah 2 - Struktur State
+#### Mengatur struktur state dengan baik dapat membuat perbedaan antara komponen yang mudah dimodifikasi dan di-debug, dan komponen yang selalu menjadi sumber error. Perlu dicatat bahwa state
+
+#### tidak boleh mengandung informasi yang tidak perlu atau duplikat. Karena jika ada state yang tidak perlu, mudah untuk lupa memperbarui state tersebut, yang akhirnya memperkenalkan masalah baru!
+
+#### Jalankan pada browser dan amati apa yang terjadi?
+
+![GIF P5](assets-report/praktikum5langkah2.gif)
+
+- Ketika saya mengubah nilai pada input `firstName` atau `lastName`, nilai `fullName akan diupdate secara otomatis` karena menggunakan state dari `useState`. Hal ini memastikan bahwa nama lengkap yang ditampilkan selalu sinkron dengan nilai dari input nama depan dan nama belakang.
