@@ -237,3 +237,13 @@ Ketika kita menambahkan properti `key` pada sebuah komponen dalam daftar, React 
 - Perbedaannya sebelum perubahan, komponen `<Chat>` dirender tanpa properti `key`. Setelah perubahan, komponen `<Chat>` dirender dengan `properti key={to.email}`.
 
 - Dengan adanya properti `key`, React akan lebih efisien dalam menangani perubahan yang terjadi pada daftar komponen. Ini dapat meningkatkan kinerja aplikasi, terutama ketika kita memiliki daftar komponen yang dinamis dan sering berubah.
+
+## Soal 1
+#### Apa tujuan dari penulisan ini key={to.email} pada < Chat key={to.email} contact={to} / > ?
+
+- Tujuan dari penulisan `key={to.email}` pada `<Chat key={to.email} contact={to} />` adalah untuk memberikan React cara yang lebih efisien untuk mengidentifikasi setiap komponen dalam daftar yang diberikan. Dalam konteks ini, `to.email` digunakan sebagai kunci unik yang terkait dengan setiap komponen `<Chat>`. Dengan memberikan kunci yang unik, React dapat melakukan updating yang lebih efisien ketika daftar komponen berubah, seperti ketika sebuah komponen ditambahkan, dihapus, atau diubah urutannya. Dengan menggunakan kunci yang unik, React dapat memastikan bahwa perubahan yang diperlukan pada daftar komponen hanya diterapkan pada komponen yang benar-benar berubah, sehingga meningkatkan kinerja dan efisiensi aplikasi.
+
+## Soal 2
+#### Apa fungsi dari props key tersebut?
+
+- Props `key` digunakan oleh React untuk membantu dalam proses reconcilation saat merender daftar komponen. Ketika React merender daftar komponen, setiap komponen yang ada dalam daftar tersebut harus memiliki kunci unik yang berbeda. Ini memungkinkan React untuk memahami perubahan yang terjadi dalam daftar komponen dengan lebih efisien. Ketika daftar komponen berubah, React dapat membandingkan kunci dari setiap komponen dalam daftar sebelum dan setelah perubahan untuk menentukan komponen mana yang harus ditambahkan, dihapus, atau diperbarui. Dengan menggunakan kunci, React dapat mempercepat proses rendering dan meningkatkan kinerja aplikasi dengan cara yang optimal.
