@@ -62,3 +62,37 @@ Parameter `isiPesan` dan `namaTombol` bisa diisi oleh layout yang ada di `page.t
 - Karena pada parameter `isiPesan` dan `namaTombol` bisa diisi oleh tata letak (layout) yang ada di file `page.tsx`. Ini berarti bahwa nilai untuk kedua parameter tersebut akan ditentukan `dinamis` oleh komponen yang menggunakan tombol tersebut di dalam `page.tsx`.
 
 ---
+
+# Praktikum 3: Propagation
+
+## Langkah 1 - Start Propagation
+#### Jalankan di browser, coba klik Tombol-1, dan amati apa yang terjadi?
+
+![Screenshot P3](assets-report/praktikum3langkah1a.jpg)
+![Screenshot P3](assets-report/praktikum3langkah1b.jpg)
+
+- Kita akan disuguhkan dengan pesan/alert sebanyak 2 kali, yaitu Pesan `"Child Element : Tombol-1"` dan pesan `"Parent Element : Div"`.
+
+- Hal ini terjadi karena baik untuk element `div maupun button memiliki event yang sama yaitu onClick`, sehingga ketika button diklik maka event handler untuk onClick pada button akan dijalankan. Kemudian baru event handler dari parent (element div) akan dijalankan.
+
+## Langkah 2 - Stop Propagation
+
+#### Objek event dapat memungkinkan untuk menghentikan propagasi. Jika kita ingin mencegah sebuah event untuk mencapai komponen induknya (propagation), Kita harus memanggil e.stopPropagation() untuk mencegah propagasi.
+
+```tsx
+    return (
+        <button
+            className="bg-green-400 hover:bg-green-700 text-white p-2 rounded m-2"
+            onClick={(e) => {
+                    e.stopPropagation()
+                    alert(isiPesan)
+                }
+            }>
+            {namaTombol}
+        </button>
+    );
+```
+
+![GIF P3](assets-report/praktikum3langkah2.gif)
+
+---
